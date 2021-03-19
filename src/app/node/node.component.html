@@ -1,0 +1,58 @@
+<!-- <ul>
+  <li>
+    <a href="#"><span>Child</span></a>
+    <ul>
+      <li>
+        <a href="#"><span>Grand Child</span></a>
+        <ul>
+          <li>
+            <a href="#"><span>Great Grand Child</span></a>
+
+          </li>
+          <li>
+            <a href="#"><span>Great Grand Child</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Great Grand Child</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Great Grand Child</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><span>Grand Child</span></a>
+        <ul>
+          <li>
+            <a href="#"><span>Great Grand Child</span></a>
+            <ul>
+              <li>
+                <a href="#"><span>Great Grand Child</span></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><span>Grand Child</span></a>
+      </li>
+    </ul>
+  </li>
+</ul> -->
+<li>
+  <a (click)="selectNode()"
+    ><span>{{ currentNode.val }}</span></a
+  >
+  <ul *ngIf="currentNode.left != null || currentNode.right != null">
+    <app-node
+      *ngIf="currentNode.left != null"
+      [currentNode]="currentNode.left"
+      appRemoveHost
+    ></app-node>
+    <app-node
+      *ngIf="currentNode.right != null"
+      [currentNode]="currentNode.right"
+      appRemoveHost
+    ></app-node>
+  </ul>
+</li>
