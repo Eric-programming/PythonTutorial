@@ -11,6 +11,9 @@ export class AppComponent {
   tree: Node;
   constructor() {
     const transfer = new Transfer();
-    this.tree = transfer.deserialize('1,2,3,4,5');
+    this.tree = transfer.deserialize('1|2|NA|NA|3|4|5');
+  }
+  setTree(node: Node) {
+    this.tree = node;
   }
 }

@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NodeComponent } from './node/node.component';
 import { RemoveHostDirective } from './remove-host.directive';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NodeComponent,
-    RemoveHostDirective
+    RemoveHostDirective,
+    NavComponent
   ],
   imports: [
     BrowserModule

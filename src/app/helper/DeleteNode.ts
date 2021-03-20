@@ -1,29 +1,13 @@
 import { Node } from './Node';
 
-export const deleteNodeInTree = (
-  cur: Node,
-  parent: Node,
-  isOnLeft: boolean
-) => {
-  //cur is leaf node
-  if (cur === null || (cur.left === null && cur.right === null)) return null;
+export const deleteNodeInTree = (cur: Node, parent: Node) => {
+  if (cur === null || parent === null) return null;
 
-  //find replacement
-  let replace = null;
-  if (cur.right !== null) {
-    replace = cur.right;
-  } else if (cur.left !== null) {
-    replace = cur.left;
-  }
-
-  //parent is null
-  if (parent === null) return replace;
-
-  if (isOnLeft) {
-    parent.left = replace;
+  if (parent.left === cur) {
+    parent.left = null;
   } else {
-    parent.right = replace;
+    parent.right = null;
   }
 
-  return replace;
+  return null;
 };

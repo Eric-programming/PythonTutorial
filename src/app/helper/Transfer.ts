@@ -1,7 +1,9 @@
 import { Node } from './Node';
+import { arrayToString, trim } from './utils';
 
 export class Transfer {
-  private X = 'X';
+  private X = 'NA';
+  private Seperator = '|';
   private serializeHelper(root: Node, lst: string[]) {
     if (!root) {
       lst.push(this.X);
@@ -16,7 +18,9 @@ export class Transfer {
   serialize(root: Node) {
     var lst = [];
     this.serializeHelper(root, lst);
-    return lst.toString();
+    trim(lst, this.X);
+    const string = arrayToString(lst, this.Seperator);
+    return string;
   }
 
   private deserializeHelper(lst: string[]) {
@@ -41,6 +45,6 @@ export class Transfer {
       return null;
     }
 
-    return this.deserializeHelper(data.split(','));
+    return this.deserializeHelper(data.split(this.Seperator));
   }
 }

@@ -1,4 +1,10 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+} from '@angular/core';
 import { deleteNodeInTree } from '../helper/DeleteNode';
 import { Node } from '../helper/Node';
 
@@ -7,10 +13,13 @@ import { Node } from '../helper/Node';
   templateUrl: './node.component.html',
   styleUrls: ['./node.component.css'],
 })
-export class NodeComponent {
+export class NodeComponent implements OnChanges {
   @Input() currentNode: Node;
   @Input() parentNode: Node;
-
+  ngOnChanges() {
+    this.currentNode = this.currentNode;
+    this.parentNode = this.parentNode;
+  }
   isSelected: boolean = false;
   addNode() {
     if (this.currentNode.left == null) {
@@ -26,15 +35,11 @@ export class NodeComponent {
       prompt("Edit Node's val", this.currentNode.val) || val;
   }
   deleteNode() {
-    this.currentNode = deleteNodeInTree(
-      this.currentNode,
-      this.parentNode,
-      this.parentNode.left === this.currentNode
-    );
+    this.currentNode = deleteNodeInTree(this.currentNode, this.parentNode);
+    console.log('this.parentNode', this.parentNode);
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log('event', event);
     if (!this.isSelected) return;
     if (
       event.code != 'Enter' &&
@@ -42,7 +47,6 @@ export class NodeComponent {
       event.code !== 'Backspace'
     )
       return;
-    console.log(this.currentNode.val);
     if (event.code === 'Enter') {
       this.addNode();
     }
