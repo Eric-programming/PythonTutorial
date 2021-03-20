@@ -108,7 +108,6 @@ body {
 .tree li a:hover + ul li a {
   background: #36f5361a;
   color: #000;
-  border: 1px solid #94a0b4;
 }
 .tree li a:hover + ul li::after,
 .tree li a:hover + ul li::before,

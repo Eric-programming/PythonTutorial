@@ -40,18 +40,20 @@
   </li>
 </ul> -->
 <li>
-  <a (click)="selectNode()"
-    ><span>{{ currentNode.val }}</span></a
-  >
+  <a [ngClass]="isSelected ? 'selected' : ''" (click)="selectNode()"
+    ><span>{{ currentNode?.val }}</span>
+  </a>
   <ul *ngIf="currentNode.left != null || currentNode.right != null">
     <app-node
       *ngIf="currentNode.left != null"
       [currentNode]="currentNode.left"
+      [parentNode]="currentNode"
       appRemoveHost
     ></app-node>
     <app-node
       *ngIf="currentNode.right != null"
       [currentNode]="currentNode.right"
+      [parentNode]="currentNode"
       appRemoveHost
     ></app-node>
   </ul>
