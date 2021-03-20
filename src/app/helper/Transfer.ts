@@ -1,6 +1,6 @@
 import { Node } from './Node';
 import { arrayToString, trim } from './utils';
-
+import { UUID } from 'angular2-uuid';
 export class Transfer {
   private X = 'NA';
   private Seperator = '|';
@@ -34,7 +34,7 @@ export class Transfer {
       return null;
     }
 
-    var root = new Node(val);
+    var root = new Node(val, UUID.UUID());
     root.left = this.deserializeHelper(lst);
     root.right = this.deserializeHelper(lst);
     return root;

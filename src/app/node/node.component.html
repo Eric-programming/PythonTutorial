@@ -47,13 +47,11 @@
     <app-node
       *ngIf="currentNode.left != null"
       [currentNode]="currentNode.left"
-      [parentNode]="currentNode"
       appRemoveHost
     ></app-node>
     <app-node
       *ngIf="currentNode.right != null"
       [currentNode]="currentNode.right"
-      [parentNode]="currentNode"
       appRemoveHost
     ></app-node>
   </ul>

@@ -2,7 +2,9 @@ export class Node {
   val: string;
   left: Node;
   right: Node;
-  constructor(val: string) {
+  key: string;
+  constructor(val: string, key: string) {
     this.val = val;
+    this.key = key;
   }
 }

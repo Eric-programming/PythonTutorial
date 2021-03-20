@@ -1,42 +1,28 @@
-import {
-  Component,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit,
-} from '@angular/core';
-import { deleteNodeInTree } from '../helper/DeleteNode';
+import { Component, HostListener, Input } from '@angular/core';
 import { Node } from '../helper/Node';
+import { UUID } from 'angular2-uuid';
+import { TreeService } from '../service/tree.service';
 
 @Component({
   selector: 'app-node',
   templateUrl: './node.component.html',
   styleUrls: ['./node.component.css'],
 })
-export class NodeComponent implements OnChanges {
+export class NodeComponent {
   @Input() currentNode: Node;
-  @Input() parentNode: Node;
-  ngOnChanges() {
-    this.currentNode = this.currentNode;
-    this.parentNode = this.parentNode;
-  }
+  constructor(private ts: TreeService) {}
   isSelected: boolean = false;
   addNode() {
-    if (this.currentNode.left == null) {
-      this.currentNode.left = new Node('L');
-    } else {
-      this.currentNode.right = new Node('R');
-    }
+    this.ts.addNode(this.currentNode);
   }
   selectNode = () => (this.isSelected = !this.isSelected);
   editVal() {
-    const val = this.currentNode.val;
-    this.currentNode.val =
-      prompt("Edit Node's val", this.currentNode.val) || val;
+    const val = prompt("Edit Node's val", this.currentNode.val);
+    if (!val) return;
+    this.ts.editNode(this.currentNode, val);
   }
   deleteNode() {
-    this.currentNode = deleteNodeInTree(this.currentNode, this.parentNode);
-    console.log('this.parentNode', this.parentNode);
+    this.ts.deleteNode(this.currentNode);
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -54,6 +40,7 @@ export class NodeComponent implements OnChanges {
       this.editVal();
     }
     if (event.code === 'Backspace') {
+      console.log('Backspace');
       this.deleteNode();
     }
     this.isSelected = false;
