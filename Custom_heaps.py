@@ -10,15 +10,15 @@ class MaxHeapObj(object):
 
 class MinHeap(object):
     def __init__(self): self.h = []
-    def heappush(self, x): heapq.heappush(self.h, x)
-    def heappop(self): return heapq.heappop(self.h)
+    def push(self, x): heapq.heappush(self.h, x)
+    def pop(self): return heapq.heappop(self.h)
     def get(self, i): return self.h[i]
     def len(self): return len(self.h)
 
 
 class MaxHeap(MinHeap):
-    def heappush(self, x): heapq.heappush(self.h, MaxHeapObj(x))
-    def heappop(self): return heapq.heappop(self.h).val
+    def push(self, x): heapq.heappush(self.h, MaxHeapObj(x))
+    def pop(self): return heapq.heappop(self.h).val
     def get(self, i): return self.h[i].val
 
 # =================================Testing=======================================
@@ -28,11 +28,11 @@ minh = MinHeap()
 maxh = MaxHeap()
 # add some values
 for num in range(5):
-    maxh.heappush(num)
-    minh.heappush(num)
+    maxh.push(num)
+    minh.push(num)
 
 print(minh.get(0))  # peek
 print(maxh.get(0))  # peek
 
-print(minh.heappop())  # pop
-print(maxh.heappop())  # pop
+print(minh.pop())  # pop
+print(maxh.pop())  # pop
