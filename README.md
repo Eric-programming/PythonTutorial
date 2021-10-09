@@ -1,3 +1,3 @@
 # CustomPy Tools
-> Custom python tools leetcode.
+> Custom python tools for leetcode/hackerrank.
 
