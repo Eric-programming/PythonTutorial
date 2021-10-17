@@ -1,5 +1,7 @@
 # List items are ordered, changeable, and allow duplicate values.
 
+# What's the naming convention
+
 # Define List
 my_list = [1, 2, "3"]
 my_list = list(["i1", "i2", "i3"])
