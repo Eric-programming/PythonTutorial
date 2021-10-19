@@ -1,11 +1,12 @@
-# Argument vs parameter
 def square_value(num):
-    return num * num  # num = parameter
+    return num * num
 
 
 result = square_value(2)  # 2 is the argument for square_value function
 
 # keyword argument
+
+
 def order_func(a, b, c):
     return f"a is {a}, b is {b}, c is {c}"
 
@@ -31,9 +32,10 @@ def foo(a, b, *args, **kwargs):
 
 
 foo(1, 2, 11, 12, name="eric", channel="programming")
-print("hello")
 
-# unpacking list/tuple into function arguments
+# unpacking list/tuple/dict into function arguments
+
+
 def foo2(a, b):
     return f"{a}, {b}"
 
@@ -41,8 +43,10 @@ def foo2(a, b):
 my_list = [1, 2]
 result = foo2(*my_list)  # length of the list matters
 
-my_tuple = (1, 2)
+my_tuple = (3, 4)
 result = foo2(*my_tuple)  # length of the tuple matters
 
 my_dict = {"a": 1, "b": 2}
 result = foo2(**my_dict)  # key must match the parameter name
+
+print(result)

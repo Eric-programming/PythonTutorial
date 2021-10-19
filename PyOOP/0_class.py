@@ -34,6 +34,8 @@ p3_location = p3.get_location()
 
 
 # Class with Static methods/variables
+
+
 class Location:
     x = 1
     y = None
@@ -43,4 +45,4 @@ class Location:
         return (Location.x, Location.y)
 
 
-print(p3)
+print(Location.get_location())

@@ -5,7 +5,7 @@ my_set = {}
 my_set = set()
 
 # Insert/Remove
-my_set = {1, 2, 3, 4}
+my_set = {1, 2, 3, 4, 4}
 my_set.add(5)
 my_set.remove(1)
 pair = (1, 2)

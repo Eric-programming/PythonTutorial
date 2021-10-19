@@ -1,7 +1,5 @@
 # List items are ordered, changeable, and allow duplicate values.
 
-# What's the naming convention
-
 # Define List
 my_list = [1, 2, "3"]
 my_list = list(["i1", "i2", "i3"])
@@ -11,12 +9,12 @@ my_list = [1, 2] * 10
 my_list = ["i1", "i2", "i3"]
 second_item = my_list[1]  # access second item
 last_item = my_list[-1]  # access last item
-second_last_item = my_list[-1]  # access second last item
+second_last_item = my_list[-2]  # access second last item
 my_list[0] = "item1"
 
 # Insert Items
 my_list.append("i4")  # O(1)
-my_list.insert(0, "i0")
+my_list.insert(0, "i0")  # O(n)
 
 # Remove item in list
 my_list.remove("i0")
@@ -58,4 +56,5 @@ my_list = list(my_list_2)  # or my_list_2.copy()
 
 is_equal = my_list is my_list_2
 
+is_equal = my_list == my_list_2
 print(is_equal)

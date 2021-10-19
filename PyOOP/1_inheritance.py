@@ -6,21 +6,23 @@ class Car:
         self.name = name
         self.price = price
 
-    def drive():
+    def drive(self):
         print("drive...")
 
-    def stop():
+    def stop(self):
         print("stop...")
 
-
 # Child Class
+
+
 class RaceCar(Car):
-    def __init__(self, name="default race car", price=100):
+    def __init__(self, name="default race car", price=100, super_speed_value=100):
         super().__init__(name=name, price=price)
+        self.super_speed_value = super_speed_value
 
     # Extends the functionality
-    def super_speed():
-        print("super speed...")
+    def super_speed(self):
+        print(f"super speed at {self.super_speed_value} miles per hour...")
 
 
 car = Car()

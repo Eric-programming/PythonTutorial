@@ -1,19 +1,24 @@
-# Abstract classes allow us to create methods that must be created within any child class
+# Abstract class allows us to create methods that must be created within any child class
 
 from abc import ABC, abstractmethod  # Abstract Base classes(ABC)
 from typing import List
 
 
+# You can't initiate an abstract class
 class Animal(ABC):
     @abstractmethod
     def eat(self):
-        print("eat")
+        pass
 
     @abstractmethod
     def sleep(self):
-        print("sleep")
+        pass
+
+    def shout(self):
+        print("Shouting...")
 
 
+# Child class must initiate abstract method
 class Bird(Animal):
     def eat(self):
         print("Bird is eating")
@@ -22,6 +27,7 @@ class Bird(Animal):
         print("Bird is sleeping")
 
 
+# Child class must initiate abstract method
 class Pig(Animal):
     def eat(self):
         print("Pig is eating")
@@ -30,7 +36,12 @@ class Pig(Animal):
         print("Pig is sleeping")
 
 
-animals: List[Animal] = [Bird(), Pig()]
+my_bird = Bird()
+my_pig = Pig()
+
+animals: List[Animal] = [my_bird, my_pig]
 for animal in animals:
     animal.eat()
     animal.sleep()
+    animal.shout()
+    print("done")

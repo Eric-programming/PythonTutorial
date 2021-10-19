@@ -12,6 +12,8 @@ my_dict[1] = 1
 del my_dict[1]
 my_dict[(1, 2)] = "1,2"
 
+is_exists = (1, 2) in my_dict
+
 # Combine Dicts
 my_dict = {"brand": "Ford", "model": "Mustang", "year": 1964}
 my_dict_2 = {"brand": "Ford", "model": "GT", "year": 2009, 1: 1}
@@ -24,7 +26,7 @@ is_exists = "brand" in my_dict
 # Iteration
 output = "Iterating keys: "
 for key in my_dict.keys():
-    output += key + " "
+    output += str(key) + " "
 print(output)
 
 output = "Iterating value: "

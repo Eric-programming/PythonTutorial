@@ -18,3 +18,10 @@ my_tuple += (1, 2, 3)
 my_tuple = "iphone", 1399, "Vancouver"
 
 product_name, price, location = my_tuple
+
+my_list = list(my_tuple)
+my_list.append("new item")
+my_tuple = tuple(my_list)
+
+print(product_name)
+print(price)
