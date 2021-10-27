@@ -25,5 +25,3 @@ for num in my_list:
     sum += num
 
 result_with_reduce = reduce(lambda sum, cur_num: sum + cur_num, my_list)
-
-print(my_list)

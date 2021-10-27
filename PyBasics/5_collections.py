@@ -29,5 +29,3 @@ my_deque.pop()  # pop last item O(1)
 
 my_deque.extend([3, 4])
 my_deque.extendleft([-1, 0])
-
-print(my_deque)

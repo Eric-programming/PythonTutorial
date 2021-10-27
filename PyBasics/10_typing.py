@@ -56,6 +56,3 @@ def callable_func(a: int, b: str) -> str:
 
 def call_callable_func(func: Callable[[int, str], str]) -> str:
     return func(1, "day")
-
-
-print(call_callable_func(callable_func))
